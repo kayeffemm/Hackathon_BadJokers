@@ -16,7 +16,10 @@ def get_joke():
     Gets a random joke from the api.
     :return: joke as a string
     """
-    pass
+    url = "https://v2.jokeapi.dev/joke/Any?type=single"
+    request_random_joke = requests.get(url)
+    random_joke = request_random_joke.json()
+    return random_joke["joke"]
 
 
 def get_category(category):
@@ -25,7 +28,10 @@ def get_category(category):
     :param category: chosen category from menu
     :return: joke as a string
     """
-    pass
+    url = f"https://v2.jokeapi.dev/joke/{category}?type=single"
+    request_category_joke = requests.get(url)
+    category_joke = request_category_joke.json()
+    return category_joke["joke"]
 
 
 def get_keyword(keyword):
@@ -39,6 +45,8 @@ def get_keyword(keyword):
 
 def main():
     print(f"TEST get_all_categories: {get_all_categories()}")
+    print(f"TEST get_joke: {get_joke()}")
+    print(f"TEST get_category: {get_category("Programming")}")
 
 
 if __name__ == "__main__":
