@@ -62,22 +62,23 @@ new_json2 = {
 }
 
 
-def main():
+def process_jsons(old_log, new_log):
     # Find the oldest new message
-    message_text, phone_number, oldest_timestamp = compare_json(old_json2, new_json2)
+    message_text, phone_number, oldest_timestamp = compare_json(old_log, new_log)
 
     new_entry = {
         "text": message_text,
         "receivedAt": oldest_timestamp.isoformat()
     }
     # Update the old JSON with the oldest new message
-    print(old_json2)
-    updated_json = update_json(old_json2, new_entry, phone_number)
+    #print(old_json2)
+    updated_json = update_json(old_log, new_entry, phone_number)
 
     # check variables
-    print(f"Message Text = {message_text} \nphone_number = {phone_number} \noldest_timestamp = {oldest_timestamp}")
-    print(updated_json)
+    #print(f"Message Text = {message_text} \nphone_number = {phone_number} \noldest_timestamp = {oldest_timestamp}")
+    #print(updated_json)
 
+    return message_text, phone_number, updated_json
 
 if __name__ == "__main__":
-    main()
+    process_jsons(old_json2, new_json2)
