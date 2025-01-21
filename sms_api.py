@@ -44,10 +44,6 @@ def receivesms():
 
         if response.status_code == 200:
             print("Messages retrieved successfully!")
-            #return response.json()  # JSON-Daten zurückgeben
-            response_dict = response.__dict__
-            print(response_dict)
-            #print(type(response))
             return response.json()
         else:
             print(f"Failed to retrieve messages. Status Code: {response.status_code}")
@@ -58,11 +54,7 @@ def receivesms():
 
 
 def main():
-    """sender = input("Wer bist Du?")
-    phone_number = "491781844175"
-    # Beispielaufruf der Funktion
-    sender = input("Wer bist Du?")
-    phone_number = "491781844175"""
+
     sendsms(phone_number, sender, sms_message)
 
     if __name__ == "__main__":
