@@ -2,10 +2,13 @@ import requests
 
 def get_all_categories():
     """
-    Gets all the available categories from the API and puts them in a list.
+    Gets all the available categories from the API.
     :return: list of categories
     """
-    pass
+    url = "https://v2.jokeapi.dev/categories"
+    request_all_categories = requests.get(url)
+    categories = request_all_categories.json()
+    return categories["categories"]
 
 
 def get_joke():
@@ -34,3 +37,9 @@ def get_keyword(keyword):
     pass
 
 
+def main():
+    print(f"TEST get_all_categories: {get_all_categories()}")
+
+
+if __name__ == "__main__":
+    main()
