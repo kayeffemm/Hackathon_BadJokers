@@ -64,7 +64,7 @@ data1 = {'id': 1, 'name': 'Alice', 'age': 30}  # Duplikat der ID 1
 store_json('data.json', data1, 'id')
 store_json('data.json', data2, 'id')
 try:
-    store_json('data.json', data3, 'id')
+    store_json('data.json', data2, 'id')
 except ValueError as e:
     print(e)
 
