@@ -10,9 +10,8 @@ def send_menu(phonenumber):
             b = Programming
             c = Dark
             d = Pun
-            example: 2a (for 'Misc')\n
-         3. Keyword\n
-            example: 3 Sport"""
+            example: 2a (for 'Misc')\n"""
+
     print(menu_message)
 
 
