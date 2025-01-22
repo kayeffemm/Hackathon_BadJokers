@@ -34,10 +34,6 @@ def main():
         #print(old_json)
         new_json = receivesms()
 
-        if old_json and old_json == new_json:
-            sleep(30)
-            continue
-
         phone_number, message_text, new_json_to_save = process_jsons(old_json, new_json)
 
         print(message_text, phone_number)
