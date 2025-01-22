@@ -17,6 +17,70 @@
             "receivedAt": "2025-01-21T10:55:35.538+0000"
         }
     ],
+    "4917655209151": [
+        {
+            "text": "Hello there!",
+            "receivedAt": "2025-01-20T07:51:33.490+0000"
+        },
+        {
+            "text": "SUBSCRIBE BadJokers",
+            "receivedAt": "2025-01-20T15:31:20.409+0000"
+        },
+        {
+            "text": "SUBSCRIBE Die%20Wilden%20Wetterfr\u00f6sche",
+            "receivedAt": "2025-01-21T08:32:00.474+0000"
+        },
+        {
+            "text": "Berlin",
+            "receivedAt": "2025-01-21T08:35:33.346+0000"
+        },
+        {
+            "text": "SUBSCRIBE BadJokers",
+            "receivedAt": "2025-01-21T09:32:27.481+0000"
+        },
+        {
+            "text": "1",
+            "receivedAt": "2025-01-22T16:06:00.561+0000"
+        }
+    ],
+    "4915162355724": [
+        {
+            "text": "SUBSCRIBE BadJokers",
+            "receivedAt": "2025-01-21T09:21:54.264+0000"
+        },
+        {
+            "text": "SUBSCRIBE BadJokers",
+            "receivedAt": "2025-01-21T09:33:44.321+0000"
+        },
+        {
+            "text": "2(?",
+            "receivedAt": "2025-01-22T15:12:17.389+0000"
+        },
+        {
+            "text": "1",
+            "receivedAt": "2025-01-22T14:39:02.602+0000"
+        },
+        {
+            "text": "1",
+            "receivedAt": "2025-01-22T15:02:00.638+0000"
+        },
+        {
+            "text": "1",
+            "receivedAt": "2025-01-22T15:08:35.319+0000"
+        },
+        {
+            "text": "1",
+            "receivedAt": "2025-01-22T15:11:40.465+0000"
+        },
+        {
+            "text": "1",
+            "receivedAt": "2025-01-22T15:15:13.013+0000"
+        },
+        {
+            "text": "2a",
+            "receivedAt": "2025-01-22T15:27:52.426+0000"
+        }
+    ],
     "491621766086": [
         {
             "text": "SUBSCRIBE BadJokers",
@@ -31,40 +95,32 @@
             "receivedAt": "2025-01-21T08:26:31.278+0000"
         },
         {
-            "text": "Hallo hier ist Lina 🙋🏼‍♀️",
+            "text": "Hallo hier ist Lina \ud83d\ude4b\ud83c\udffc\u200d\u2640\ufe0f",
             "receivedAt": "2025-01-21T08:30:22.790+0000"
-        }
-    ],
-    "4917655209151": [
-        {
-            "text": "Hello there!",
-            "receivedAt": "2025-01-20T07:51:33.490+0000"
         },
         {
-            "text": "SUBSCRIBE BadJokers",
-            "receivedAt": "2025-01-20T15:31:20.409+0000"
+            "text": "Test registration",
+            "receivedAt": "2025-01-22T12:14:48.377+0000"
         },
         {
-            "text": "SUBSCRIBE Die%20Wilden%20Wetterfrösche",
-            "receivedAt": "2025-01-21T08:32:00.474+0000"
+            "text": "Hallo Test 123",
+            "receivedAt": "2025-01-22T15:06:00.336+0000"
         },
         {
-            "text": "Berlin",
-            "receivedAt": "2025-01-21T08:35:33.346+0000"
+            "text": "1",
+            "receivedAt": "2025-01-22T15:07:32.427+0000"
         },
         {
-            "text": "SUBSCRIBE BadJokers",
-            "receivedAt": "2025-01-21T09:32:27.481+0000"
-        }
-    ],
-    "4915162355724": [
-        {
-            "text": "SUBSCRIBE BadJokers",
-            "receivedAt": "2025-01-21T09:21:54.264+0000"
+            "text": "1",
+            "receivedAt": "2025-01-22T15:11:56.370+0000"
         },
         {
-            "text": "SUBSCRIBE BadJokers",
-            "receivedAt": "2025-01-21T09:33:44.321+0000"
+            "text": "Joke",
+            "receivedAt": "2025-01-22T15:58:28.750+0000"
+        },
+        {
+            "text": "2b",
+            "receivedAt": "2025-01-22T15:59:57.536+0000"
         }
     ]
 }
