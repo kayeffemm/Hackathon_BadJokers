@@ -31,7 +31,7 @@ def choose_joke_method(prompt: str):
 def main():
     while True:
         old_json = read_json(JSON_FILEPATH)
-        print(old_json)
+        #print(old_json)
         new_json = receivesms()
 
         if old_json and old_json == new_json:
