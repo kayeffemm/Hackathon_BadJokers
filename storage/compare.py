@@ -22,16 +22,20 @@ def process_jsons(old_data, new_data):
     # Compare entries and find the oldest new one
     for number, messages in new_data.items():
         old_messages = old_data.get(number, [])
-        old_texts = {msg['text'] for msg in old_messages}
+        old_message_set = {(msg['text'], msg['receivedAt']) for msg in old_messages}
 
-        # Identify new messages
-        new_messages = [msg for msg in messages if msg['text'] not in old_texts]
+        # Identify new messages based on both 'text' and 'receivedAt'
+        new_messages = [msg for msg in messages if (msg['text'], msg['receivedAt']) not in old_message_set]
 
         for message in new_messages:
             message_time = datetime.fromisoformat(message['receivedAt'][:-5])
 
             if oldest_timestamp is None or message_time < oldest_timestamp:
-                oldest_entry = {"number": number, "text": message['text']}
+                oldest_entry = {
+                    "number": number,
+                    "text": message['text'],
+                    "receivedAt": message['receivedAt'],
+                }
                 oldest_timestamp = message_time
 
     # If no new messages were found, return None for the first two return values
@@ -41,8 +45,10 @@ def process_jsons(old_data, new_data):
     # Update the old data with the oldest new entry
     number = oldest_entry["number"]
     text = oldest_entry["text"]
+    received_at = oldest_entry["receivedAt"]
+
     old_data[number] = old_data.get(number, []) + [
-        msg for msg in new_data[number] if msg['text'] == text
+        msg for msg in new_data[number] if (msg['text'], msg['receivedAt']) == (text, received_at)
     ]
 
     return number, text, old_data

@@ -23,4 +23,3 @@ def send_menu(phonenumber):
 
 if __name__ == "__main__":
     send_menu(491781844175)
-
