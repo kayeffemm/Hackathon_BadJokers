@@ -1,6 +1,10 @@
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template
 # Byte-compiled / optimized / DLL files
+send_test_sms.py
+hochsicherheits_versuchslabor.py
+readme.md
+check_sms_api.py
 __pycache__/
 *.py[cod]
 *$py.class
