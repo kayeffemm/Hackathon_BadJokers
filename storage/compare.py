@@ -1,6 +1,6 @@
 from datetime import datetime
 
-def compare_json(old_json, new_json):
+def get_oldest_post(old_json, new_json):
     oldest_message = None
     oldest_timestamp = None
     oldest_number = None
@@ -28,7 +28,25 @@ def update_json(old_json, new_entry, phone_number):
     new_json[phone_number].append(new_entry)
     return new_json
 
-# Example usage
+
+def compare_jsons(old_json, new_json):
+    return old_json == new_json
+
+
+def process_jsons(old_log, new_log):
+    # Find the oldest new message
+    message_text, phone_number, oldest_timestamp = get_oldest_post(old_log, new_log)
+
+    new_entry = {
+        "text": message_text,
+        "receivedAt": oldest_timestamp.isoformat()
+    }
+
+    updated_json = update_json(old_log, new_entry, phone_number)
+
+    return message_text, phone_number, updated_json
+
+
 old_json2 = {
     # Your old JSON structure here
     "491781844175": [
@@ -56,29 +74,11 @@ new_json2 = {
         },
         {
             "text": "Es ist 11:56",
-            "receivedAt": "2023-01-21T10:55:35.538+0000"
+            "receivedAt": "2025-01-21T10:55:35.538+0000"
         }
     ]
 }
 
 
-def process_jsons(old_log, new_log):
-    # Find the oldest new message
-    message_text, phone_number, oldest_timestamp = compare_json(old_log, new_log)
-
-    new_entry = {
-        "text": message_text,
-        "receivedAt": oldest_timestamp.isoformat()
-    }
-    # Update the old JSON with the oldest new message
-    #print(old_json2)
-    updated_json = update_json(old_log, new_entry, phone_number)
-
-    # check variables
-    #print(f"Message Text = {message_text} \nphone_number = {phone_number} \noldest_timestamp = {oldest_timestamp}")
-    #print(updated_json)
-
-    return message_text, phone_number, updated_json
-
 if __name__ == "__main__":
-    process_jsons(old_json2, new_json2)
+    print(process_jsons(old_json2, new_json2))
