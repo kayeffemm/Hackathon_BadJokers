@@ -1,47 +1,38 @@
 import json
-
-def dict_store(filepath):
-    my_dict = { }
-
-    with open(filepath, 'w') as f:
-        json.dump(my_dict, f)
-        print("Dict wurde als JSON gespeichert.")
-
-    with open(filepath, 'r') as f:
-        loaded_dict = json.load(f)
-        print("Geladenes Dictionary:", loaded_dict)
-
-    for key, value in loaded_dict.items():
-        print(f"{key}: {value}")
+import os
 
 
-
-def content_json(filepath, key="number"):
+def save_json(file_path, new_json: dict):
     """
-    Extrahiert den Wert eines bestimmten Schlüssels aus einer JSON-Datei.
-
-    Args:
-        filepath (str): Der Pfad zur JSON-Datei.
-        key (str, optional): Der Schlüssel, dessen Wert extrahiert werden soll. Defaults to "joke".
-
-    Returns:
-        str: Der Wert des angegebenen Schlüssels oder None, wenn der Schlüssel nicht gefunden wurde.
+    Saves a dictionary as a JSON file to the specified file path.
     """
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    full_path = os.path.join(base_dir, '..', file_path)  # Navigate to the project root
 
     try:
-        with open(filepath, 'r') as f:
-            data = json.load(f)
-            return data.get(key)
-    except (FileNotFoundError, json.JSONDecodeError) as e:
-        print(f"Fehler beim Lesen der JSON-Datei: {e}")
-        return None
+        # Ensure the target directory exists
+        os.makedirs(os.path.dirname(full_path), exist_ok=True)
 
-# Beispielaufruf:
-joke_content = content_json("jokes.json")
-if joke_content:
-    print(joke_content)
-else:
-    print("Witz konnte nicht gefunden werden.")
+        # Save the dictionary as JSON
+        with open(full_path, 'w') as f:
+            json.dump(new_json, f, indent=4)
+    except Exception as e:
+        raise OSError(f"Failed to save JSON to {full_path}: {e}")
 
+def read_json(file_path):
+    """
+    Reads and returns the contents of a JSON file.
+    """
 
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    full_path = os.path.join(base_dir, '..', file_path)  # Navigate to the project root
 
+    try:
+        # Open and load the JSON file
+        with open(full_path, 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"JSON file not found: {full_path}")
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON format in file {full_path}: {e}")

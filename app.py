@@ -1,8 +1,12 @@
-from storage.json_manager import save_json
+from misc.send_menu import send_menu
+from storage.json_manager import save_json, read_json
 from api.sms_api import sendsms, receivesms
-from storage.compare import compare_jsons, process_jsons
+from storage.compare import process_jsons
 from time import sleep
-from api.joke_api import get_joke, get_category, get_keyword
+from api.joke_api import get_joke, get_category
+
+
+JSON_FILEPATH = "data/badjokers.json"
 
 
 def analyze_message(message):
@@ -10,7 +14,7 @@ def analyze_message(message):
     return message in valid_messages
 
 
-def choose_joke_method(prompt: str)
+def choose_joke_method(prompt: str):
     match prompt:
         case "1":
             return get_joke()
@@ -31,27 +35,27 @@ def choose_joke_method(prompt: str)
 
 
 def main():
-    filepath = ""
-    old_json = json_manager.read_json(filepath) #returns python dict
-
     while True:
+        old_json = read_json(JSON_FILEPATH)
+        print(old_json)
         new_json = receivesms()
 
-        if old_json and compare_jsons(old_json, new_json):
-            sleep(30)  # Wartezeit vor der nächsten Anfrage
+        if old_json and old_json == new_json:
+            sleep(30)
             continue
 
-        message_text, phone_number, new_json_to_save = process_jsons(old_json, new_json) #my part
+        message_text, phone_number, new_json_to_save = process_jsons(old_json, new_json)
 
-        save_json(filepath, new_json_to_save)
+        print(message_text, phone_number)
+        save_json(JSON_FILEPATH, new_json_to_save)
 
         if analyze_message(message_text):
             new_text = choose_joke_method(message_text)
             sendsms(phone_number, "", new_text)
         else:
-            sendsms(phone_number, menu)
+            send_menu(phone_number)
 
-        sleep(30)  # Wartezeit vor der nächsten Anfrage
+        sleep(30)
 
 
 if __name__ == "__main__":
