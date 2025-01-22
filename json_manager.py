@@ -17,6 +17,7 @@ def store_json(filepath, new_data, key='id'):
     if key not in new_data:
         raise ValueError(f"Das neue Datenelement muss den Schlüssel '{key}' enthalten.")
 
+
     if new_data[key] not in data:
         data[new_data[key]] = new_data
     else:
@@ -67,6 +68,10 @@ try:
     store_json('data.json', data2, 'id')
 except ValueError as e:
     print(e)
+=======
+def content_json
+
+dict_store()
 
 all_data = load_json('data.json')
 duplicates = find_duplicates(all_data, 'id')
