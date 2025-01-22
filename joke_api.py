@@ -1,5 +1,6 @@
 import requests
 
+
 def get_all_categories():
     """
     Gets all the available categories from the API.
@@ -32,15 +33,6 @@ def get_category(category):
     request_category_joke = requests.get(url)
     category_joke = request_category_joke.json()
     return category_joke["joke"]
-
-
-def get_keyword(keyword):
-    """
-    Gets a joke which contains the chosen keyword.
-    :param keyword: chosen keyword
-    :return: joke as a string
-    """
-    pass
 
 
 def main():
