@@ -1,45 +1,52 @@
+import time
 import json
-from datetime import datetime
+from joke_api import get_all_categories
 
+def load_json():
+    try:
+        with open('store.json', 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {"latest_request": None}
 
-def correct_content():
+def save_json(data):
+    with open('store.json', 'w') as file:
+        json.dump(data, file)
 
+def receivesms():
+    return {"number": "+491234567890", "text": "1"}
 
-    # Erstelle ein Dictionary für die neue SMS
-    new_sms = {
-            'from': from_number,
-            'body': body,
-            'timestamp': datetime.now().isoformat()
-    }
+def send_sms(number, text):
+    print(f"Sending SMS to {number}: {text}")
 
-    def store_json(new_sms):
-        """Speichert die neue SMS in einer JSON-Datei und führt einen Vergleich durch."""
+def main():
+    print("Starting program...")
 
-        try:
-            with open('store.json', 'r') as f:
-                store = json.load(f)
-        except FileNotFoundError:
-            # Wenn die Datei noch nicht existiert, erstelle eine leere Liste
-            store = []
+    while True:
+        new_request = receivesms()
+        data = load_json()
 
-        # Prüfe, ob die SMS bereits existiert (basierend auf 'from' und 'body')
-        exists = False
-        for sms in store:
-            if sms['from'] == from_number and sms['body'] == body:
-                exists = True
-                break
+        if data["latest_request"] == new_request:
+            print("No new request. Waiting...")
+            time.sleep(30)
+            continue
 
-        if not exists:
-            # Füge die neue SMS nur hinzu, wenn sie noch nicht vorhanden ist
-            store.append(new_sms)
+        data["latest_request"] = new_request
+        save_json(data)
 
-            # Speichere die aktualisierten Daten in der JSON-Datei
-            with open('store.json', 'w') as f:
-                json.dump(store, f, indent=4)
-            return True  # Gibt zurück, ob die SMS hinzugefügt wurde
+        user_choice = new_request["text"]
+        user_number = new_request["number"]
+
+        if user_choice == "1":
+            send_sms(user_number, "Random joke: Why did the chicken go to the barber?")
+        elif user_choice.startswith("2="):
+            category = user_choice.split("=")[1]
+            send_sms(user_number, f"Joke from category {category}")
+        elif user_choice.startswith("3="):
+            keyword = user_choice.split("=")[1]
+            send_sms(user_number, f"Joke with keyword '{keyword}'")
         else:
-            return False  # Gibt zurück, dass die SMS bereits vorhanden ist
+            send_sms(user_number, "Invalid input. Try again.")
 
-
-
-
+if __name__ == "__main__":
+    main()
