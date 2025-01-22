@@ -59,7 +59,7 @@ def find_duplicates(data, key):
     return duplicates
 
 # Beispiel:
-data1 = {'id': 1, 'name': 'Alice', 'age': 30}  # Duplikat der ID 1
+data1 = {'id': 1, 'number': '123', 'user': 'string'}  # Duplikat der ID 1
 
 store_json('data.json', data1, 'id')
 store_json('data.json', data2, 'id')
