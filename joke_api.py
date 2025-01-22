@@ -1,5 +1,6 @@
 import requests
 
+
 def get_all_categories():
     """
     Gets all the available categories from the API.
