@@ -1,8 +1,8 @@
-from json_manager import read_json, save_json
-from sms_api import sendsms, receivesms
+from storage.json_manager import save_json
+from api.sms_api import sendsms, receivesms
 from storage.compare import compare_jsons, process_jsons
 from time import sleep
-from joke_api import get_joke, get_category, get_keyword
+from api.joke_api import get_joke, get_category, get_keyword
 
 
 def analyze_message(message):

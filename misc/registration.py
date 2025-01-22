@@ -1,6 +1,3 @@
-import sms_api
-
-
 TEAM = "BadJokers"
 
 
