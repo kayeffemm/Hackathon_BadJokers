@@ -19,5 +19,5 @@ def send_menu(phonenumber):
 
 
 if __name__ == "__main__":
-    send_menu(4917655209151)
+    send_menu()
 
