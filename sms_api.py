@@ -74,10 +74,10 @@ def registersms(phone_number):
         response = requests.post(url, json=payload, headers=headers)
 
         if response.status_code == 200:
-            print(f"Phone number {phone_number} successfully registered to team '{team_name}'!")
+            print(response.text)
             return True
         else:
-            print(f"Failed to register phone number. Status Code: {response.status_code}, Response: {response.text}")
+            print(response.text)
             return False
     except Exception as e:
         print(f"An error occurred during registration: {e}")
