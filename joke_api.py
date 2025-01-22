@@ -35,15 +35,6 @@ def get_category(category):
     return category_joke["joke"]
 
 
-def get_keyword(keyword):
-    """
-    Gets a joke which contains the chosen keyword.
-    :param keyword: chosen keyword
-    :return: joke as a string
-    """
-    pass
-
-
 def main():
     print(f"TEST get_all_categories: {get_all_categories()}")
     print(f"TEST get_joke: {get_joke()}")
