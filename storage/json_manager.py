@@ -38,7 +38,6 @@ def read_json(file_path):
         raise ValueError(f"Invalid JSON format in file {full_path}: {e}")
 
 
-
 def store_json(filepath, new_data, key='id'):
     """Speichert ein Dictionary als JSON-Datei und verhindert Duplikate anhand des angegebenen Schlüssels.
 
