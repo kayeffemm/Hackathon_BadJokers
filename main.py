@@ -1,6 +1,6 @@
 import time
 import json
-from joke_api import get_all_categories
+
 
 def load_json():
     try:

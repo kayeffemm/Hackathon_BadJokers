@@ -1,5 +1,4 @@
-import sms_api
-from sms_api import registersms
+from api.sms_api import registersms
 
 
 def validate_phone_number(phone_number):

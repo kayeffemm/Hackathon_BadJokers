@@ -1,4 +1,5 @@
-import sms_api
+from api import sms_api
+
 
 def send_menu(phonenumber):
 
